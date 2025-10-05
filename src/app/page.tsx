@@ -48,7 +48,7 @@ export default function Home() {
           <div className="md:col-span-1">
             <h1 className="text-5xl sm:text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">SURYAKRISHNA V P</h1>
             <h2 className="text-xl sm:text-lg text-gray-300 mb-4">FullStack Developer | Backend Specialist</h2>
-            <p className="text-base text-gray-400 mb-4 max-w-xl md:hidden">I specialize in building robust backend systems and scalable web applications using Python, Django, and FastAPI. I also create modern, responsive frontend experiences with React and Next.js. With a focus on performance, security, and clean architecture, I deliver solutions that are both user-friendly and future-ready.
+            <p className="text-base text-gray-400 mb-4 max-w-xl md:hidden">I specialize in building robust backend systems and scalable web applications using Python, Django, and FastAPI.
 </p>
             <p className="hidden md:block text-base text-gray-400 mb-4 max-w-xl">I specialize in building robust backend systems and scalable web applications with a strong foundation in Python, Django, and FastAPI. Alongside backend expertise, I design and develop modern, responsive, and user-friendly frontend experiences using React and Next.js. My focus is on delivering high-performance, secure, and maintainable solutions that not only meet business needs but also provide seamless experiences for end users. By combining strong problem-solving skills with a passion for clean architecture and efficient development practices, I ensure that every project is both future-ready and adaptable to growth.</p>
             <div className="flex gap-4">

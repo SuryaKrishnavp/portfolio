@@ -86,7 +86,6 @@ export default function ProjectsPage() {
 
                   <div className="mt-4 flex items-center justify-between">
                     <a href={p.repo} target="_blank" rel="noreferrer" className="text-blue-400">View repo</a>
-                    <span className="text-xs text-gray-400">{p.tech.join(' • ')}</span>
                   </div>
                 </article>
               ))}
