@@ -106,30 +106,137 @@ export default function Home() {
         <section id="projects" className="mb-12 md:mb-20">
           <h3 className="text-3xl font-semibold mb-8">Projects</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <h4 className="text-xl font-semibold mb-2">DEVLOK Real Estate CRM</h4>
-              <p className="text-gray-300 mb-3">Backend API with Django and MySQL, deployed on Hostinger VPS.</p>
-              <a href="https://github.com/SuryaKrishnavp/TestCrmBack" className="text-blue-400">View repo</a>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <h4 className="text-xl font-semibold mb-2">Broad Way App</h4>
-              <p className="text-gray-300 mb-3">Django-based Multi Service app with REST APIs and MySQL DataBase.</p>
-              <a href="https://github.com/SuryaKrishnavp/Broadway" className="text-blue-400">View repo</a>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <h4 className="text-xl font-semibold mb-2">Sayas Group Of Company Website</h4>
-              <p className="text-gray-300 mb-3">React vite based responsive website</p>
-              <a href="https://github.com/SuryaKrishnavp/sayasweb" className="text-blue-400">View repo</a>
-            </div>
+            {(() => {
+              const projects = [
+                {
+                  name: 'DEVLOK Real Estate CRM',
+                  repo: 'https://github.com/SuryaKrishnavp/TestCrmBack',
+                  details: 'Backend API for a real-estate CRM built with Django and MySQL, responsible for property, lead and user management.',
+                  tech: ['Django', 'Celery', 'MySQL', 'Redis'],
+                  working: 'Exposes REST endpoints for CRUD operations, authentication, role-based access and background tasks for email notifications.',
+                  problems: [
+                    {
+                      problem: 'Background tasks occasionally failed under load',
+                      solution: 'Switched to resilient Celery retry policies, increased worker concurrency, and monitored task rates to scale workers horizontally using Docker.'
+                    },
+                  ],
+                },
+                {
+                  name: 'Broad Way App',
+                  repo: 'https://github.com/SuryaKrishnavp/Broadway',
+                  details: 'Django-based multi-service application providing on-demand services with a central REST API and MySQL backend.',
+                  tech: ['Python', 'Django', 'MySQL', 'Social Auth'],
+                  working: 'Central API handles requests from mobile/web clients; background workers process long-running tasks such as invoices and notifications.',
+                  problems: [
+                    {
+                      problem: 'High latency on list endpoints with large datasets',
+                      solution: 'Implemented pagination, indexed frequently queried DB fields and added query optimizations; also introduced Redis caching for heavy repeated queries.'
+                    },
+                  ],
+                },
+                {
+                  name: 'Sayas Group Website',
+                  repo: 'https://github.com/SuryaKrishnavp/sayasweb',
+                  details: 'Responsive marketing website built with React + Vite to showcase company services and capture leads.',
+                  tech: ['React', 'Vite', 'Tailwind CSS'],
+                  working: 'Static site with client-side interactivity, contact form integration that submits leads to a backend API.',
+                  problems: [
+                    {
+                      problem: 'SEO and fast load times required',
+                      solution: 'Optimized images, implemented lazy-loading, and minimized bundle size by splitting routes and removing unused dependencies.'
+                    },
+                  ],
+                },
+              ];
+
+              return projects.map((p) => (
+                <article key={p.name} className="bg-gray-800 p-6 rounded-lg flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-xl font-semibold mb-2">{p.name}</h4>
+                    <p className="text-gray-300 mb-3">{p.details}</p>
+
+                    <div className="mb-3">
+                      <div className="text-sm text-gray-400 mb-2">Tech stack:</div>
+                      <div className="flex gap-2 flex-wrap">
+                        {p.tech.map((t: string) => (
+                          <span key={t} className="px-2 py-1 bg-white/5 rounded text-xs">{t}</span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mb-3">
+                      <div className="text-sm text-gray-400 mb-1">How it works:</div>
+                      <p className="text-gray-300 text-sm">{p.working}</p>
+                    </div>
+
+                    <div>
+                      <div className="text-sm text-gray-400 mb-2">Problems & solutions:</div>
+                      <ul className="list-disc list-inside text-gray-300 space-y-2">
+                        {p.problems.map((ps: { problem: string; solution: string }, idx: number) => (
+                          <li key={idx}>
+                            <div className="font-medium">{ps.problem}</div>
+                            <div className="text-sm text-gray-300">{ps.solution}</div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex items-center justify-between">
+                    <a href={p.repo} target="_blank" rel="noreferrer" className="text-blue-400">View repo</a>
+                  </div>
+                </article>
+              ));
+            })()}
           </div>
         </section>
 
         <section id="experience" className="mb-20">
           <h3 className="text-3xl font-semibold mb-8 text-center">Work Experience</h3>
           <div className="space-y-8">
-            {experiences.map((exp) => (
-              <ExperienceCard key={exp.title} title={exp.title} company={exp.company} bulletPoints={exp.bulletPoints} />
-            ))}
+            {(() => {
+              const exps = [
+                {
+                  title: 'Freelance Developer',
+                  period: '2025 - Present',
+                  completedWorks: [
+                    'Built backend APIs and admin dashboards for 5+ small businesses',
+                    'Integrated payment gateways and automated invoicing for clients',
+                  ],
+                  team: 'Worked independently and with small distributed teams (2-4 people) depending on the project',
+                  responsibilities: [
+                    'Design and implement RESTful APIs with Django/FastAPI',
+                    'Deploy applications using Docker and cloud VPS',
+                    'Write integration tests and CI pipelines'
+                  ],
+                  achievements: [
+                    'Reduced average API response time by 40% for a client via query optimization and caching',
+                  ]
+                },
+                {
+                  title: 'Jr. Software Developer',
+                  company: 'Extramind Technologies',
+                  period: '2024 - 2025',
+                  completedWorks: [
+                    'Contributed to backend modules for internal tools',
+                    'Implemented REST endpoints for order management and reporting',
+                  ],
+                  team: 'Part of a cross-functional team with 5 developers, 1 QA, and 1 PM',
+                  responsibilities: [
+                    'Support and extend existing Django applications',
+                    'Collaborate with frontend teams to integrate APIs',
+                    'Participate in code reviews and sprint planning'
+                  ],
+                  achievements: [
+                    'Helped migrate legacy endpoints to a new modular service, improving maintainability'
+                  ]
+                }
+              ];
+
+              return exps.map((exp) => (
+                <ExperienceCard key={exp.title} {...exp} />
+              ));
+            })()}
           </div>
         </section>
 
