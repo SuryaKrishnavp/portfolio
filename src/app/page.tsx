@@ -1,103 +1,195 @@
-import Image from "next/image";
+'use client';
+
+import { useState, useEffect } from 'react';
+import Layout from '@/components/Layout';
+import SkillCard from '@/components/SkillCard';
+import ExperienceCard from '@/components/ExperienceCard';
+// ...existing code... (SocialLink not used here)
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isVisible, setIsVisible] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const skills = [
+    { title: 'Backend', skills: 'Python • Django • FastAPI', progress: 90, color: 'blue' as const },
+    { title: 'Frontend', skills: 'JavaScript • React • Next.js', progress: 75, color: 'purple' as const },
+    { title: 'Tools & Others', skills: 'Git • Docker • AWS • PostgreSQL • MongoDB', progress: 80, color: 'green' as const },
+  ];
+
+  const experiences = [
+    {
+      title: 'Freelance Developer',
+      bulletPoints: [
+        'Working on various client projects focusing on backend development',
+        'Developing custom solutions using Python, Django, and FastAPI',
+        'Building scalable and maintainable web applications',
+      ],
+    },
+    {
+      title: 'Jr. Software Developer',
+      company: 'Extramind Technologies',
+      bulletPoints: [
+        'Developed and maintained backend systems using Python frameworks',
+        'Collaborated with cross-functional teams on various projects',
+        'Implemented RESTful APIs and database solutions',
+      ],
+    },
+  ];
+
+  return (
+    <Layout>
+  <main id="home" className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-20 pb-20 ${isVisible ? 'animate-fadeIn' : 'opacity-0'}`}>
+        {/* Hero */}
+  <section className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mb-12 md:mb-20">
+          {/* single column on mobile so the image sits below the name; two columns on md+ */}
+          <div className="md:col-span-1">
+            <h1 className="text-5xl sm:text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">SURYAKRISHNA V P</h1>
+            <h2 className="text-xl sm:text-lg text-gray-300 mb-4">FullStack Developer | Backend Specialist</h2>
+            <p className="text-base text-gray-400 mb-4 max-w-xl md:hidden">I specialize in building robust backend systems and scalable web applications using Python, Django, and FastAPI. I also create modern, responsive frontend experiences with React and Next.js. With a focus on performance, security, and clean architecture, I deliver solutions that are both user-friendly and future-ready.
+</p>
+            <p className="hidden md:block text-base text-gray-400 mb-4 max-w-xl">I specialize in building robust backend systems and scalable web applications with a strong foundation in Python, Django, and FastAPI. Alongside backend expertise, I design and develop modern, responsive, and user-friendly frontend experiences using React and Next.js. My focus is on delivering high-performance, secure, and maintainable solutions that not only meet business needs but also provide seamless experiences for end users. By combining strong problem-solving skills with a passion for clean architecture and efficient development practices, I ensure that every project is both future-ready and adaptable to growth.</p>
+            <div className="flex gap-4">
+              <a href="/SURYAKRISHNA V P - Fullstack Developer Resume.pdf" download="Suryakrishna_Resume.pdf" className="inline-flex items-center bg-blue-500 hover:bg-blue-400 text-black font-semibold px-3 py-2 rounded">Resume</a>
+              <a href="#contact" className="inline-flex items-center border border-white/10 text-white px-3 py-2 rounded">Contact</a>
+            </div>
+          </div>
+
+          <div className="md:col-span-1 flex justify-center md:justify-end">
+            <div className="w-full h-[28rem] sm:h-[32rem] md:w-72 md:h-72 lg:w-96 lg:h-96 rounded-lg overflow-hidden avatar-no-corner-mobile shadow-lg">
+              {/* mobile: cover with object-top to preserve top; desktop (md+) use object-contain so image isn't cropped */}
+              <img src="/surya.png" alt="Suryakrishna" className="w-full h-full object-cover object-top md:object-contain md:object-center block" />
+            </div>
+          </div>
+        </section>
+
+        {/* About (summary) */}
+  <section id="about" className="mb-12 md:mb-20 grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+          <div className="md:col-span-2">
+            <h3 className="text-3xl font-semibold mb-4">About</h3>
+            <p className="text-gray-300 mb-4 max-w-3xl">I am Suryakrishna V P from Thrissur, Kerala, India. I have completed my graduation in BA Sociology from IGNOU University. I am a self-taught developer with a passion for building robust backend systems and scalable web applications. Previously, I have served as an NCC volunteer, which helped me develop discipline, teamwork, and leadership skills. I specialize in creating APIs, background workers, and services using Python (Django, FastAPI), and I also develop frontend interfaces with React and Next.js when required.</p>
+            <div className="flex gap-3 flex-wrap">
+              <span className="px-3 py-1 bg-white/5 rounded">Python</span>
+              <span className="px-3 py-1 bg-white/5 rounded">Django</span>
+              <span className="px-3 py-1 bg-white/5 rounded">FastAPI</span>
+              <span className="px-3 py-1 bg-white/5 rounded">React</span>
+              <span className="px-3 py-1 bg-white/5 rounded">Next.js</span>
+              <span className="px-3 py-1 bg-white/5 rounded">PostgreSQL</span>
+              <span className="px-3 py-1 bg-white/5 rounded">MongoDB</span>
+            </div>
+            
+          </div>
+
+          <aside className="bg-gray-800 p-4 rounded-lg">
+            <h4 className="font-semibold mb-2">Quick Facts</h4>
+            <ul className="text-gray-300 space-y-1">
+              <li><strong>Location:</strong> India</li>
+              <li><strong>Availability:</strong> Freelance & Fulltime Opportunity</li>
+              <li><strong>Experience:</strong> 1+ year</li>
+            </ul>
+          </aside>
+        </section>
+
+        {/* Skills */}
+        <section className="mb-12 md:mb-20">
+          <h3 className="text-2xl md:text-3xl font-semibold mb-6 md:mb-8 text-center">Technical Skills</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {skills.map((skill) => (
+              <SkillCard key={skill.title} title={skill.title} skills={skill.skills} progress={skill.progress} color={skill.color} />
+            ))}
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section id="projects" className="mb-12 md:mb-20">
+          <h3 className="text-3xl font-semibold mb-8">Projects</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <h4 className="text-xl font-semibold mb-2">DEVLOK Real Estate CRM</h4>
+              <p className="text-gray-300 mb-3">Backend API with Django and MySQL, deployed on Hostinger VPS.</p>
+              <a href="https://github.com/SuryaKrishnavp/TestCrmBack" className="text-blue-400">View repo</a>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <h4 className="text-xl font-semibold mb-2">Broad Way App</h4>
+              <p className="text-gray-300 mb-3">Django-based Multi Service app with REST APIs and MySQL DataBase.</p>
+              <a href="https://github.com/SuryaKrishnavp/Broadway" className="text-blue-400">View repo</a>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <h4 className="text-xl font-semibold mb-2">Sayas Group Of Company Website</h4>
+              <p className="text-gray-300 mb-3">React vite based responsive website</p>
+              <a href="https://github.com/SuryaKrishnavp/sayasweb" className="text-blue-400">View repo</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="experience" className="mb-20">
+          <h3 className="text-3xl font-semibold mb-8 text-center">Work Experience</h3>
+          <div className="space-y-8">
+            {experiences.map((exp) => (
+              <ExperienceCard key={exp.title} title={exp.title} company={exp.company} bulletPoints={exp.bulletPoints} />
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="mb-20">
+          <h3 className="text-3xl font-semibold mb-8 text-center">Connect Me</h3>
+          <p className="text-gray-300 text-center mb-6">I am available for freelance work and full-time opportunities. Reach out via any of the channels below.</p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 max-w-4xl mx-auto">
+            <a href="https://wa.me/916282870940" target="_blank" rel="noreferrer" className="bg-green-700 hover:bg-green-600 text-black p-4 rounded-lg flex flex-col items-center gap-2">
+              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                <path d="M20.52 3.48A11.89 11.89 0 0012 0C5.37 0 .5 5.37.5 12c0 2.11.55 4.09 1.6 5.86L0 24l6.39-1.62A11.89 11.89 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.22-3.48-8.52z" fill="#fff"/>
+                <path d="M17.07 14.04c-.28-.14-1.66-.82-1.92-.91-.26-.09-.44-.14-.63.14-.19.28-.76.91-.93 1.1-.17.19-.35.21-.63.07-.28-.14-1.05-.4-2-1.25-.74-.66-1.25-1.47-1.4-1.74-.15-.27-.02-.42.12-.56.14-.14.29-.36.44-.55.15-.19.2-.31.29-.51.08-.2.05-.37-.02-.52-.07-.15-.66-1.56-.9-2.14-.24-.58-.46-.5-.64-.51-.18-.01-.36-.01-.52-.01-.17 0-.42.02-.64.31-.22.29-.85.98-.85 2.4 0 1.42.87 2.49 1 2.68.13.19 2.03 3.11 4.95 4.37 2.38 1.03 2.03.67 2.38.61.35-.06 1.48-.67 1.69-1.3.21-.63.21-1.17.16-1.29-.05-.12-.24-.19-.52-.33z" fill="#000"/>
+              </svg>
+              <div className="text-sm font-semibold">WhatsApp</div>
+            </a>
+
+            <a href="mailto:vpsuryakrishna@gmail.com" className="bg-blue-700 hover:bg-blue-600 text-black p-4 rounded-lg flex flex-col items-center gap-2">
+              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                <rect x="2" y="4" width="20" height="16" rx="2" ry="2" fill="#fff"/>
+                <path d="M3 6l9 7 9-7" stroke="#000" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+              </svg>
+              <div className="text-sm font-semibold">Email</div>
+            </a>
+
+            <a href="https://www.instagram.com/surya_krishnavp/?hl=en" target="_blank" rel="noreferrer" className="bg-pink-600 hover:bg-pink-500 text-black p-4 rounded-lg flex flex-col items-center gap-2">
+              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                <rect x="3" y="3" width="18" height="18" rx="6" fill="#fff"/>
+                <circle cx="12" cy="12" r="3" fill="#000"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="#000"/>
+              </svg>
+              <div className="text-sm font-semibold">Instagram</div>
+            </a>
+
+            <a href="https://github.com/SuryaKrishnavp" target="_blank" rel="noreferrer" className="bg-gray-800 hover:bg-gray-700 text-white p-4 rounded-lg flex flex-col items-center gap-2">
+              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.49 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.54 2.36 1.1 2.93.84.09-.65.35-1.1.64-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.26-.45-1.28.1-2.66 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.71.115 2.51.338 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.66.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.75 0 .27.16.59.67.49C19.13 20.17 22 16.42 22 12c0-5.52-4.48-10-10-10z" fill="#fff"/>
+              </svg>
+              <div className="text-sm font-semibold">GitHub</div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/suryakrishna-vp/" target="_blank" rel="noreferrer" className="bg-blue-800 hover:bg-blue-700 text-white p-4 rounded-lg flex flex-col items-center gap-2">
+              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5z" fill="#fff"/>
+                <path d="M0 8h5v16H0V8zm7.5 0h4.6v2.2h.1c.64-1.2 2.2-2.2 4.5-2.2 4.8 0 5.7 3.2 5.7 7.4V24h-5v-7.2c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24h-5V8z" fill="#fff"/>
+              </svg>
+              <div className="text-sm font-semibold">LinkedIn</div>
+            </a>
+            
+            <a href="https://x.com/suryakrishna_vp" target="_blank" rel="noreferrer" className="bg-sky-500 hover:bg-sky-400 text-white p-4 rounded-lg flex flex-col items-center gap-2">
+              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                <path d="M21.6 5.2c-.6.3-1.2.5-1.9.6.7-.4 1.2-1 1.4-1.8-.7.4-1.5.7-2.4.9C17.6 4 16.7 3.6 15.6 3.6c-1.6 0-2.9 1.3-2.9 2.9 0 .2 0 .4.1.6-2.4-.1-4.6-1.3-6-3.1-.3.5-.4 1-.4 1.6 0 1.1.6 2.1 1.6 2.7-.5 0-1-.2-1.4-.4v.1c0 1.4 1 2.6 2.4 2.8-.4.1-.8.1-1.2.1-.3 0-.6 0-.9-.1.6 1.9 2.4 3.3 4.6 3.3-1.7 1.3-3.7 2-5.9 2-.4 0-.8 0-1.2-.1 2.1 1.4 4.6 2.2 7.3 2.2 8.8 0 13.6-7.3 13.6-13.6v-.6c.9-.7 1.6-1.6 2.1-2.6-.8.4-1.7.6-2.6.7z" fill="#fff"/>
+              </svg>
+              <div className="text-sm font-semibold">X</div>
+            </a>
+            
+
+            
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </Layout>
   );
 }

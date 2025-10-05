@@ -1,15 +1,53 @@
 @import "tailwindcss";
 
+/* Root variables and fonts */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --font-sans: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Fade in animation used by the page */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Smooth scrolling and base font */
+body {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Optional animated gradient helper */
+.bg-gradient-animate {
+  background-size: 200% 200%;
+  animation: gradientAnimation 5s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +57,34 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Small helpers */
+@media (max-width: 640px) {
+  .container-padding {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.125rem; }
 }
+
+/* avatar-edge-fade mask removed to preserve full image rendering (no soft mask) */
+
+/* Remove rounded corners on very small screens for full-bleed avatar */
+@media (max-width: 640px) {
+  .avatar-no-corner-mobile {
+    border-radius: 0 !important;
+  }
+}
+
+/* Overlay to improve text contrast when image is large/full-width */
+/* overlay removed: previously used for contrast on the avatar; intentionally omitted to preserve PNG transparency */
+
+/* Tile hover effect used on contact/social tiles */
+.tile-hover {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.tile-hover:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+}
+
