@@ -73,9 +73,9 @@ export default function ProjectsPage() {
 
                     <div>
                       <div className="text-sm text-gray-400 mb-2">Problems & solutions:</div>
-                      <ul className="list-disc list-inside text-gray-300 space-y-2">
+                      <ul className="list-none pl-0 text-gray-300 space-y-2">
                         {p.problems.map((ps: { problem: string; solution: string }, idx: number) => (
-                          <li key={idx}>
+                          <li key={idx} className="marker:hidden">
                             <div className="font-medium">{ps.problem}</div>
                             <div className="text-sm text-gray-300">{ps.solution}</div>
                           </li>
