@@ -91,7 +91,7 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <a href="https://wa.me/916282870940" target="_blank" rel="noreferrer" className="block text-center bg-green-500 text-black py-2 rounded">Hire me</a>
+            <a href="https://wa.me/916282870940" target="_blank" rel="noreferrer" className="block text-center bg-green-500 text-black py-2 rounded">Chat Up</a>
           </div>
         </div>
       )}
