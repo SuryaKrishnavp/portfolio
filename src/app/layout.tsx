@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   title: "Suryakrishna — FullStack Dev",
   description: "Portfolio of Suryakrishna V P — FullStack and Backend Developer",
   icons: {
-    icon: '/image.png',
-    apple: '/image.png',
+    icon: '/image.png?v=2',
+    apple: '/image.png?v=2',
   },
 };
 
