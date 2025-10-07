@@ -242,7 +242,7 @@ export default function Home() {
 
         <section id="contact" className="mb-20">
           <h3 className="text-3xl font-semibold mb-8 text-center">Connect Me</h3>
-          <p className="text-gray-300 text-center mb-6">I am available for freelance work and full-time opportunities. Reach out via any of the channels below.</p>
+          <p className="text-gray-300 text-center mb-6">Let’s connect and build something amazing together. Reach out through any of the channels below.</p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 max-w-4xl mx-auto">
             <a href="https://wa.me/916282870940" target="_blank" rel="noreferrer" className="bg-green-700 hover:bg-green-600 text-black p-4 rounded-lg flex flex-col items-center gap-2">

@@ -8,7 +8,7 @@ export default function ContactPage() {
     <Layout>
       <main className="max-w-4xl mx-auto px-4 py-20">
         <h1 className="text-4xl font-bold mb-6 text-center">Contact</h1>
-        <p className="text-gray-300 mb-8 text-center">I am available for freelance work and full-time opportunities. Reach out via any of the channels below.</p>
+        <p className="text-gray-300 mb-8 text-center">Let’s connect and build something amazing together. Reach out through any of the channels below.</p>
 
         <div className="bg-gray-900 p-6 rounded-lg mx-auto max-w-3xl">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">

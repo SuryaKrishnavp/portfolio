@@ -7,4 +7,8 @@
   </defs>
   <rect width="64" height="64" rx="12" fill="url(#g)"/>
   <text x="50%" y="52%" font-size="28" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle" fill="white">S</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" preserveAspectRatio="xMidYMid meet">
+  <!-- This SVG wraps the raster PNG so browsers can use it as an SVG favicon while showing the exact PNG image -->
+  <image href="/image.png" width="48" height="48" />
 </svg>
