@@ -10,7 +10,7 @@ export default function ProjectsPage() {
           const projects = [
             {
               name: 'DEVLOK Real Estate CRM',
-              repo: 'https://github.com/SuryaKrishnavp/TestCrmBack',
+              repo: 'https://github.com/SuryaKrishnavp/devlokback',
               details: 'Backend API for a real-estate CRM built with Django and MySQL, responsible for property, lead and user management.',
               tech: ['Django', 'Celery', 'MySQL', 'Redis'],
               working: 'Exposes REST endpoints for CRUD operations, authentication, role-based access and background tasks for email notifications.',
