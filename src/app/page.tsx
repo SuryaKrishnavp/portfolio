@@ -87,7 +87,7 @@ export default function Home() {
             <ul className="text-gray-300 space-y-1">
               <li><strong>Location:</strong> India</li>
               <li><strong>Availability:</strong> Freelance & Fulltime Opportunity</li>
-              <li><strong>Experience:</strong> 2+ year</li>
+              <li><strong>Experience:</strong> 2 year</li>
             </ul>
           </aside>
         </section>
@@ -201,12 +201,12 @@ export default function Home() {
                   period: '2025 - Present',
                   completedWorks: [
                     'Built backend APIs and admin dashboards for 5+ small businesses',
-                    'Integrated payment gateways and automated invoicing for clients',
+                    'Led end-to-end project delivery by overseeing timelines, coordinating teams, ensuring quality, and managing client communication and documentation',
                   ],
                   team: 'Worked independently and with small distributed teams (2-4 people) depending on the project',
                   responsibilities: [
                     'Design and implement RESTful APIs with Django/FastAPI',
-                    'Deploy applications using Docker and cloud VPS',
+                    'Deploy applications using cloud VPS',
                     'Write integration tests and CI pipelines'
                   ],
                   achievements: [
