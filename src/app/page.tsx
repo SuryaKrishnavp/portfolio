@@ -52,7 +52,7 @@ export default function Home() {
 </p>
             <p className="hidden md:block text-base text-gray-400 mb-4 max-w-xl">I specialize in building robust backend systems and scalable web applications with a strong foundation in Python, Django, and FastAPI. Alongside backend expertise, I design and develop modern, responsive, and user-friendly frontend experiences using React and Next.js. My focus is on delivering high-performance, secure, and maintainable solutions that not only meet business needs but also provide seamless experiences for end users. By combining strong problem-solving skills with a passion for clean architecture and efficient development practices, I ensure that every project is both future-ready and adaptable to growth.</p>
             <div className="flex gap-4">
-              <a href="/SURYAKRISHNA V P - Fullstack Developer Resume.pdf" download="Suryakrishna_Resume.pdf" className="inline-flex items-center bg-blue-500 hover:bg-blue-400 text-black font-semibold px-3 py-2 rounded">Resume</a>
+              <a href="/SURYAKRISHNA V P - Backend & Fullstack Developer Resume.pdf" download="Suryakrishna_Resume.pdf" className="inline-flex items-center bg-blue-500 hover:bg-blue-400 text-black font-semibold px-3 py-2 rounded">Resume</a>
               <a href="#contact" className="inline-flex items-center border border-white/10 text-white px-3 py-2 rounded">Contact</a>
             </div>
           </div>
