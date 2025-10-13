@@ -48,7 +48,7 @@ export default function Home() {
           <div className="md:col-span-1">
             <h1 className="text-5xl sm:text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">SURYAKRISHNA V P</h1>
             <h2 className="text-xl sm:text-lg text-gray-300 mb-4">FullStack Developer | Backend Specialist</h2>
-            <p className="text-base text-gray-400 mb-4 max-w-xl md:hidden">I specialize in building robust backend systems and scalable web applications using Python, Django, and FastAPI.
+            <p className="text-base text-gray-400 mb-4 max-w-xl md:hidden">I specialize in building robust backend systems and scalable web applications using Python, Django, and React.
 </p>
             <p className="hidden md:block text-base text-gray-400 mb-4 max-w-xl">I specialize in building robust backend systems and scalable web applications with a strong foundation in Python, Django, and FastAPI. Alongside backend expertise, I design and develop modern, responsive, and user-friendly frontend experiences using React and Next.js. My focus is on delivering high-performance, secure, and maintainable solutions that not only meet business needs but also provide seamless experiences for end users. By combining strong problem-solving skills with a passion for clean architecture and efficient development practices, I ensure that every project is both future-ready and adaptable to growth.</p>
             <div className="flex gap-4">
@@ -69,7 +69,7 @@ export default function Home() {
   <section id="about" className="mb-12 md:mb-20 grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
           <div className="md:col-span-2">
             <h3 className="text-3xl font-semibold mb-4">About</h3>
-            <p className="text-gray-300 mb-4 max-w-3xl">I am Suryakrishna V P from Thrissur, Kerala, India. I have completed my graduation in BA Sociology from IGNOU University. I am a self-taught developer with a passion for building robust backend systems and scalable web applications. Previously, I have served as an NCC volunteer, which helped me develop discipline, teamwork, and leadership skills. I specialize in creating APIs, background workers, and services using Python (Django, FastAPI), and I also develop frontend interfaces with React and Next.js when required.</p>
+            <p className="text-gray-300 mb-4 max-w-3xl">I am Suryakrishna V P from Thrissur, Kerala, India. I have completed my graduation in BA Sociology from IGNOU University. I am a self-taught developer with a passion for building robust backend systems and scalable web applications. Previously, I have served as an NCC volunteer, which helped me develop discipline, teamwork, and leadership skills. I specialize in creating APIs, background workers, and services using Python (Django, FastAPI), and I also develop frontend interfaces with React and Next.js when required. I manage end-to-end delivery — from backend architecture and deployment pipelines to ensuring quality and performance standards across development stages. Additionally, I handle client communication and maintain key documentation, including proposals, invoices, and agreements.</p>
             <div className="flex gap-3 flex-wrap">
               <span className="px-3 py-1 bg-white/5 rounded">Python</span>
               <span className="px-3 py-1 bg-white/5 rounded">Django</span>
